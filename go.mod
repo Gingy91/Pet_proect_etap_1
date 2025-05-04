@@ -22,6 +22,7 @@ require (
 	github.com/cznic/zappy v0.0.0-20181122101859-ca47d358d4b1 // indirect
 	github.com/edsrzf/mmap-go v1.2.0 // indirect
 	github.com/go-sql-driver/mysql v1.9.2 // indirect
+	github.com/golang-jwt/jwt/v5 v5.2.2 // indirect
 	github.com/golang-migrate/migrate/v4 v4.18.3 // indirect
 	github.com/google/go-github v17.0.0+incompatible // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
@@ -41,4 +42,5 @@ require (
 	golang.org/x/sync v0.13.0 // indirect
 	golang.org/x/sys v0.32.0 // indirect
 	golang.org/x/text v0.24.0 // indirect
+	golang.org/x/time v0.11.0 // indirect
 )

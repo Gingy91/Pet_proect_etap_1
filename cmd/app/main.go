@@ -20,10 +20,11 @@ func main() {
 	handler := handlers.NewHandler(service)
 
 	router := mux.NewRouter()
-	router.HandleFunc("/api/v1/tasks/get", handler.GetTasksHandler).Methods("GET")
-	router.HandleFunc("/api/v1/tasks/post", handler.PostTaskHandler).Methods("POST")
-	router.HandleFunc("/api/v1/tasks/patch/{id}", handler.UpdateTaskHandler).Methods("PATCH")
-	router.HandleFunc("/api/v1/tasks/delete/{id}", handler.DeleteTaskHandler).Methods("DELETE")
+	api := router.PathPrefix("/api/v1").Subrouter()
+	api.HandleFunc("/tasks/get", handler.GetTasksHandler).Methods("GET")
+	api.HandleFunc("/tasks/post", handler.PostTaskHandler).Methods("POST")
+	api.HandleFunc("/tasks/patch/{id}", handler.UpdateTaskHandler).Methods("PATCH")
+	api.HandleFunc("/tasks/delete/{id}", handler.DeleteTaskHandler).Methods("DELETE")
 
 	fmt.Println("Сервер запускается ...")
 
