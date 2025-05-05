@@ -26,7 +26,6 @@ func main() {
 
 	api := router.PathPrefix("/api/v1").Subrouter()
 	api.Use(middleware.AuthMiddleware)
-	api.Use(middleware.RateLimitMiddleware)
 	api.HandleFunc("/tasks/get", handler.GetTasksHandler).Methods("GET")
 	api.HandleFunc("/tasks/post", handler.PostTaskHandler).Methods("POST")
 	api.HandleFunc("/tasks/patch/{id}", handler.UpdateTaskHandler).Methods("PATCH")

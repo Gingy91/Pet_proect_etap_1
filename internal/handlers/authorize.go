@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"encoding/json"
-	"github.com/golang-jwt/jwt/v5"
 	"net/http"
 	"pet_project_etap_1/JWT"
 )
@@ -22,12 +21,15 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Не правильный пароль", http.StatusBadRequest)
 		return
 	}
-
-	token, err := jwt.GenerarteJWT(1, "admin")
+	// ID
+	token, err := JWT.GenerateJWT(1, "admin")
 	if err != nil {
 		http.Error(w, "Токен не сгенерирован", http.StatusInternalServerError)
 		return
 	}
 
-	json.NewEncoder(w).Encode(map[string]string{"token": token})
+	err = json.NewEncoder(w).Encode(map[string]string{`token`: token})
+	if !(err == nil) {
+		return
+	}
 }
