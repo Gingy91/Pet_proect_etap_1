@@ -23,7 +23,7 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	token, err := jwt.GenerateJWT(1, "admin")
+	token, err := jwt.GenerarteJWT(1, "admin")
 	if err != nil {
 		http.Error(w, "Токен не сгенерирован", http.StatusInternalServerError)
 		return
